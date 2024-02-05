@@ -19,10 +19,10 @@
         </form>
         <h3 class = "mt-6 mb-3 text-xl uppercase">Categories</h3>
         <ul class = "space-y-2">
-            <li><a href="text-purple-500">All catagories</a></li>
-            <li><a href="text-gray-500">Sofa</a></li>
-            <li><a href="text-purple-500">Beds</a></li>
-            <li><a href="text-purple-500">Tables</a></li>
+            <li><a href="{% url 'shop' %}" class = "text-purple-500">All catagories</a></li>
+            {% for category in catagories %}
+            <li><a href= "{% url 'shop' %}?category={{category.slug}}"  class = "text-gray-500">{{ category.name }}</a></li>
+            {% endfor %}
         </ul>
     </div>
     <div class = "products w-full lg:w-3/4 -mt-4 flex items-center flex-warp">
