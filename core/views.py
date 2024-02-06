@@ -11,12 +11,11 @@ def frontpage(request):
 
 
 def shop(request):
-    products = Product.objects.all()
     catagories = Category.objects.all()
-
+    products = Product.objects.all()
     context = {
         'catagories' : catagories,
         'products' : products
     }
-    return render(request,'core/shop.html',{'products': products})
+    return render(request,'core/shop.html',context)
     
