@@ -13,9 +13,12 @@ def frontpage(request):
 def shop(request):
     catagories = Category.objects.all()
     products = Product.objects.all()
+
+    active_category = request.GET.get('category','')
     context = {
         'catagories' : catagories,
-        'products' : products
+        'products' : products,
+        'active_category' : active_category
     }
     return render(request,'core/shop.html',context)
     
